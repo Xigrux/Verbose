@@ -1,4 +1,4 @@
-var data = [
+[
     {
         "Description": " Moved to Site-19\u00a01993. Origin is as of yet unknown. It is constructed from concrete and rebar with traces of Krylon brand spray paint. SCP-173 is animate and extremely hostile. The object cannot move while within a direct line of sight. Line of sight must not be broken at any time with SCP-173. Personnel assigned to enter container are instructed to alert one another before blinking. Object is reported to attack by snapping the neck at the base of the skull, or by strangulation. In the event of an attack, personnel are to observe Class 4 hazardous object containment procedures. Personnel report sounds of scraping stone originating from within the container when no one is present inside. This is considered normal, and any change in this behaviour should be reported to the acting HMCL supervisor on duty. The reddish brown substance on the floor is a combination of feces and blood. Origin of these materials is unknown. The enclosure must be cleaned on a bi-weekly basis. <span style=\"text-decoration: underline;\">Creator Information</span> <sup>The image used in the SCP-173 article is the art piece \"Untitled 2004\" by <a href=\"http://izumikato.com/#Untitled-2004\">Izumi Kato</a>. The photograph was taken by <a href=\"http://www.scaithebathhouse.com/en/exhibitions/2005/04/izumi_kato/\">Keisuke Yamamoto</a>. All rights are reserved by the artists.</sup> <sup>A note of caution: SCP-173 is a secondary use of the image of the art piece \"Untitled 2004\", which was created by <a href=\"http://izumikato.com/#Untitled-2004\">Izumi Kato</a>. The concept of SCP-173 does not have any relationship with the artist's original concept of \"Untitled 2004\".</sup> <sup>The sculpture, its likeness, and the photograph have not been released under any Creative Commons license. Only the text of this article is released under Creative Commons. ",
         "Item": "SCP-173",
@@ -2364,8 +2364,4 @@ var data = [
         "Object Class": "Safe",
         "Special Containment Procedures": ": SCP-1045 is stored in Low-Security Locker 17 at Site 21. No flammable materials or sources of open flame are to be brought within 5 meters of SCP-1045 except for testing purposes. "
     }
-];
-
-export {
-   data 
-};
+]
