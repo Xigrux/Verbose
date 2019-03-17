@@ -128,7 +128,7 @@ interact(".dropzone").dropzone({
       var doc = document.querySelector("#results");
       var winMsg, detail, winTitle;
 
-      if (generator.results.length > 1) {
+      if (generator.results.length <= 2) {
         winMsg = "Congrats, you're hired!";
         winTitle = "Good eye!";
       } else {
