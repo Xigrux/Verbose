@@ -76,22 +76,25 @@ interact(".dropzone").dropzone({
   },
   ondrop: function(event) {
     var real = event.relatedTarget.classList.contains("real");
+    var fake = event.relatedTarget.classList.contains("fake");
     var files = document.querySelectorAll(".files");
 
-    document.querySelector(".stamper").setAttribute("data-x", 0);
-    document.querySelector(".stamper").setAttribute("data-y", 0);
     if (real) {
       event.target.classList.add("stamped-real");
       event.relatedTarget.style.transform = "unset";
       event.target.style.transform = "unset";
+      document.querySelector(".real").setAttribute("data-x", 0);
+      document.querySelector(".real").setAttribute("data-y", 0);
       //   for (var i = 2; i >= 0; i--) {
       //     files[i].setAttribute("data-x", 0);
       //     files[i].setAttribute("data-y", 0);
       //   }
-    } else {
+    } else if (fake) {
       event.target.classList.add("stamped-fake");
       event.relatedTarget.style.transform = "unset";
       event.target.style.transform = "unset";
+      document.querySelector(".fake").setAttribute("data-x", 0);
+      document.querySelector(".fake").setAttribute("data-y", 0);
     }
 
     if (generator.next(real)) {
