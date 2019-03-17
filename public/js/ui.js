@@ -1,3 +1,5 @@
+import * as generator from './generator.js'
+
 function init() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -65,9 +67,30 @@ interact(".dropzone").dropzone({
       event.target.classList.add("stamped-fake");
     }
 
-    var files = document.querySelectorAll(".files");
-    for (var i = 2; i >= 0; i--) {
-      files[i].classList.add("retract");
+    if (generator.next(real)) {
+      var files = document.querySelectorAll(".files");
+
+      setTimeout(() => {
+        for (var i = 2; i >= 0; i--) {
+          files[i].classList.add("retract");
+        }
+      }, 100)
+      
+      setTimeout(() => {
+        console.log('...')
+        // all good and we've got another folder
+        for (var i = 2; i >= 0; i--) {
+          files[i].classList.remove("retract");
+        }
+        event.target.classList.remove("stamped-real");
+        event.target.classList.remove("stamped-fake");
+        // @lulu: change the 3000 to whatever you think the delay
+        // for stuff coming back on to the screen should be
+      }, 3000)
+    } else {
+      // that was the last folder; we need to show the total
+      // @lulu: here's where we'd show a modal with the results
+      console.dir(generator.results)
     }
   },
   ondropdeactivate: function(event) {
