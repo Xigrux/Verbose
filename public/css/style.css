@@ -211,8 +211,8 @@ body {
 }
 
 .draggable.stamper {
-    width: 144px;
-    height: 246px;
+    width: 86px;
+    height: 86px;
 }
 
 .draggable .stamper {
@@ -220,16 +220,18 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: inherit;
-    width: inherit;
+    height: 246px;
+    width: 144px;
+    left: -33%;
+    top: -206%;
 }
 .stamper + .shadow {
     height: 267px;
     width: 135px;
     position: relative;
     z-index: -1;
-    left: 7px;
-    top: -89%;
+    left: -24px;
+    top: -460%;
     background: url(/img/main/s-stamp.png);
     background-size: contain;
     background-position: center;
@@ -276,3 +278,57 @@ body {
     background-image: url(/img/main/r-stamp.png);
 }
 
+.stamp-here {
+    height: 96px;
+    width: 119px;
+    right: 33px;
+    top: 26px;
+    position: absolute;
+    background-image: url(/img/main/stamparea.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.stamp-here.drop-target {
+    animation: oppulse 700ms infinite ease-in-out;
+}
+
+.stamp-here.stamped-real,
+.stamp-here.stamped-fake {
+    background-image: url(/img/main/stamparea-trans.png);
+}
+
+.stamped-real:before {
+    content: url(/img/main/real.png);
+    position: absolute;
+    right: -5%;
+    top: -6%;
+    transform: rotate(-14deg) scale(0.9);
+}
+
+.stamped-fake:before {
+    content: url(/img/main/fake.png);
+    position: absolute;
+    right: -5%;
+    top: -6%;
+    transform: rotate(-14deg) scale(0.9);
+}
+
+.files.retract {
+    animation: slide-left forwards ;
+    animation-duration: 2000ms;
+    animation-delay: 500ms;
+}
+
+@keyframes oppulse {
+    0% {opacity: 1; transform: scale(1)}
+    50% {opacity: 0.3; transform: scale(1.05)}
+    100% {opacity: 1; transform: scale(1)}
+}
+
+@keyframes slide-left {
+    0% {left: inherit;}
+    60% {left: 10%;}
+    100% {left: -60%;}
+}
