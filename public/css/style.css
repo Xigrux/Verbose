@@ -27,7 +27,8 @@ body {
     overflow: hidden;
     background-color: var(--white);
     z-index: -10;
-    cursor: url(/img/main/neutral.png), auto !important
+    cursor: url(/img/main/neutral.png), auto !important;
+    font-family: monospace;
 }
 
 .table {
@@ -77,6 +78,19 @@ body {
     cursor: url(/img/main/inpect.png), auto !important
 }
 
+.needle {
+    left: 48%;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 200px solid rgb(61, 16, 82);
+    position: absolute;
+    top: 17%;
+    transform-origin: bottom;
+    transform: rotate(0deg);
+    animation: clockwork 300000ms forwards;
+}
 
 .calendar {
     position: absolute;
@@ -319,6 +333,11 @@ body {
     animation: slide-left forwards ;
     animation-duration: 2000ms;
     animation-delay: 300ms;
+}
+
+@keyframes clockwork {
+    0% {transform: rotate(0deg)}
+    100% {transform: rotate(360deg)}
 }
 
 @keyframes oppulse {
