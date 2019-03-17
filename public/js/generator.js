@@ -1,6 +1,6 @@
 import { data } from "./database.js";
 
-var LIMIT = 2;
+var LIMIT = 6;
 
 var index = 0;
 var db = [];
