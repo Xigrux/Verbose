@@ -122,6 +122,85 @@ interact(".dropzone").dropzone({
       // that was the last folder; we need to show the total
       // @lulu: here's where we'd show a modal with the results
       console.dir(generator.results);
+      var doc = document.querySelector("#results");
+      var winMsg, detail, winTitle;
+
+      if (generator.results.length > 1) {
+        winMsg = "Congrats, you're hired!";
+        winTitle = "Good eye!";
+      } else {
+        winMsg = "Pack up and shave your head";
+        winTitle = "We have disabled your login.";
+      }
+
+      // for (var i = generator.results.length - 1; i >= 0; i--) {
+      //   detail += generator.results[i].toString();
+      //   console.log(generator.results[i].toString());
+      // }
+
+      var ALERT_TITLE = winTitle;
+      var ALERT_BUTTON_TEXT = "Ok";
+
+      if (document.getElementById) {
+        window.alert = function(txt) {
+          createCustomAlert(txt);
+        };
+      }
+
+      function createCustomAlert(txt) {
+        var d = document;
+
+        if (d.getElementById("modalContainer")) return;
+
+        var mObj = d
+          .getElementsByTagName("body")[0]
+          .appendChild(d.createElement("div"));
+        mObj.id = "modalContainer";
+        mObj.style.height = d.documentElement.scrollHeight + "px";
+
+        var alertObj = mObj.appendChild(d.createElement("div"));
+        alertObj.id = "alertBox";
+        if (d.all && !window.opera)
+          alertObj.style.top = document.documentElement.scrollTop + "px";
+        alertObj.style.left =
+          (d.documentElement.scrollWidth - alertObj.offsetWidth) / 2 + "px";
+        alertObj.style.visiblity = "visible";
+
+        var h1 = alertObj.appendChild(d.createElement("h1"));
+        h1.appendChild(d.createTextNode(ALERT_TITLE));
+
+        var msg = alertObj.appendChild(d.createElement("p"));
+        //msg.appendChild(d.createTextNode(txt));
+        msg.innerHTML = txt;
+
+        var btn = alertObj.appendChild(d.createElement("a"));
+        btn.id = "closeBtn";
+        btn.appendChild(d.createTextNode(ALERT_BUTTON_TEXT));
+        btn.href = "#";
+        btn.focus();
+        btn.onclick = function() {
+          removeCustomAlert();
+          return false;
+        };
+
+        alertObj.style.display = "block";
+      }
+
+      function removeCustomAlert() {
+        document
+          .getElementsByTagName("body")[0]
+          .removeChild(document.getElementById("modalContainer"));
+      }
+
+      function ful() {
+        alert(winMsg);
+      }
+
+      ful();
+
+      // doc.querySelector("h1").innerHTML = winMsg;
+
+      // doc.querySelector("h4").innerHTML = detail;
     }
   },
   ondropdeactivate: function(event) {
