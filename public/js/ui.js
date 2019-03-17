@@ -66,8 +66,6 @@ interact(".dropzone").dropzone({
     }
 
     var files = document.querySelectorAll(".files");
-    // files.classList.add("poop");
-    console.log(files);
     for (var i = 2; i >= 0; i--) {
       files[i].classList.add("retract");
     }

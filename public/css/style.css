@@ -32,7 +32,7 @@ body {
 
 .table {
     position: absolute;
-    height: 950px;
+    height: 805px;
     width: inherit;
     background-image: url(/img/main/table.png);
     background-size: contain;
@@ -318,7 +318,7 @@ body {
 .files.retract {
     animation: slide-left forwards ;
     animation-duration: 2000ms;
-    animation-delay: 500ms;
+    animation-delay: 300ms;
 }
 
 @keyframes oppulse {
@@ -328,7 +328,7 @@ body {
 }
 
 @keyframes slide-left {
-    0% {left: inherit;}
+    0% {left: initial;}
     60% {left: 10%;}
     100% {left: -60%;}
 }
