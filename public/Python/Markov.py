@@ -11,12 +11,23 @@ data = simplejson.loads(text)
 dataSummary = []
 
 for val in data:
-    print("#############################################")
-    print("SCP-"+val['id'] + ": " + val["text"])
+    dict = {}
+    #print("#############################################")
+    #print("SCP-"+val['id'] + ": " + val["text"])
 
-    dataSummary.append({"SCP-"+val['id'], summarizer.summarize(val['text'])})
-    print("Summary: " + summarizer.summarize(val['text']))
+    dict['id']=val['id']
+    dict['text']=summarizer.summarize(val['text'])
 
+    dataSummary.append(dict)
+
+
+data = simplejson.dumps(dataSummary.__str__(), sort_keys=True)
+
+# now write output to a file
+DataFile = open("scpSum.json", "w")
+# magic happens here to make it pretty-printed
+DataFile.write(simplejson.dumps(simplejson.loads(data), indent=4, sort_keys=True))
+DataFile.close()
 
 
 '''
