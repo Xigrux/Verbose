@@ -37,7 +37,7 @@ def getSCP(links):
     scpList = []
 
 
-    itemPattern = "(Item) #:</strong> (SCP-\d+)"
+    itemPattern = "(Item) #:</strong> SCP-(\d+)"
     classPattern = "(Object Class):</strong> (\w+)</p>"
     procedurePattern = "(?<=(Special Containment Procedures))(.*)(?=Description)"
     descriptionPattern = "(?<=(Description):)(.*)(?=<strong>)"
@@ -52,32 +52,36 @@ def getSCP(links):
         matchItem = re.search(itemPattern, tag.__str__())
 
         if matchItem is not None:
-            scpDict[matchItem.group(1)] = matchItem.group(2)
+            scpDict["id"] = matchItem.group(2)
+            matchDescription = re.search(descriptionPattern, tag.__str__())
 
+            if matchDescription is not None:
+                cleanup = re.sub("(?=(<))(.*?)(?<=(>))", "", matchDescription.group(2))
+                cleanup = re.sub("SCP-\d+","[     ]", cleanup)
+                cleanup = re.sub("(\\\\\\\\u\w+)", "", cleanup)
+                scpDict["text"] = cleanup
+
+            if matchDescription is not None:
+                scpList.append(scpDict)
+        '''
         matchClass = re.search(classPattern, tag.__str__())
 
         if matchClass is not None:
             scpDict[matchClass.group(1)] = matchClass.group(2)
+        '''
 
+        '''
         matchProcedure = re.search(procedurePattern, tag.__str__())
 
         if matchProcedure is not None:
-            cleanup = matchProcedure.group(2).replace('<p>', '')
-            cleanup = cleanup.replace('</p>,', '')
-            cleanup = cleanup.replace('<strong>', '')
-            cleanup = cleanup.replace('</strong>', '')
+            cleanup = re.sub("(?=(<))(.*?)(?<=(>))", "", matchProcedure.group(2))
+            cleanup = re.sub("(\\\\\\\\u\w+)", "", cleanup)
             scpDict[matchProcedure.group(1)] = cleanup
+        '''
 
-        matchDescription = re.search(descriptionPattern, tag.__str__())
 
-        if matchDescription is not None:
-            cleanup = matchDescription.group(2).replace('<p>', '')
-            cleanup = cleanup.replace('</p>,', '')
-            cleanup = cleanup.replace('<strong>', '')
-            cleanup = cleanup.replace('</strong>', '')
-            scpDict[matchDescription.group(1)] = cleanup
 
-        scpList.append(scpDict)
+
     return scpList
 
 
