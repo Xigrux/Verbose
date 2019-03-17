@@ -13,37 +13,26 @@ interact(".draggable").draggable({
   // keep the element within the area of it's parent
   modifiers: [
     interact.modifiers.restrict({
-      restriction: "parent",
       endOnly: true,
       elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
     })
   ],
   // enable autoScroll
   autoScroll: true,
-  onstart: function(event) {
-    var target = event.target;
-    fade(target.children[1]);
-  },
+  onstart: dragStartListener,
 
   // call this function on every dragmove event
   onmove: dragMoveListener,
   // call this function on every dragend event
-  onend: function(event) {
-    // var textEl = event.target.querySelector("p");
-    // textEl &&
-    //   (textEl.textContent =
-    //     "moved a distance of " +
-    //     Math.sqrt(
-    //       (Math.pow(event.pageX - event.x0, 2) +
-    //         Math.pow(event.pageY - event.y0, 2)) |
-    //         0
-    //     ).toFixed(2) +
-    //     "px");
-    var target = event.target;
-    target.style.zIndex = "0";
-    unfade(target.children[1]);
-  }
+  onend: dragEndListener
 });
+
+function dragStartListener(event) {
+  var target = event.target;
+  var shadow = target.children[1];
+  fade(shadow);
+  target.style.filter = "drop-shadow(0 0 500px #4b415767)";
+}
 
 function dragMoveListener(event) {
   var target = event.target,
@@ -61,6 +50,14 @@ function dragMoveListener(event) {
   target.style.zIndex = "100";
 }
 
+function dragEndListener(event) {
+  var target = event.target;
+  var shadow = target.children[1];
+  target.style.zIndex = "0";
+  unfade(shadow);
+  target.style.filter = "initial";
+}
+
 // this is used later in the resizing and gesture demos
 window.dragMoveListener = dragMoveListener;
 
@@ -74,7 +71,7 @@ function fade(element) {
     element.style.opacity = op;
     element.style.filter = "alpha(opacity=" + op * 100 + ")";
     op -= op * 0.1;
-  }, 5);
+  }, 2);
 }
 
 function unfade(element) {
@@ -87,7 +84,7 @@ function unfade(element) {
     element.style.opacity = op;
     element.style.filter = "alpha(opacity=" + op * 100 + ")";
     op += op * 0.1;
-  }, 5);
+  }, 0);
 }
 
 export { init };

@@ -12,6 +12,12 @@ body {
 .draggable {
     position: absolute;
     z-index: 0;
+    filter: drop-shadow( 0 0 20px #c7c7c732);
+    transition: filter 500ms ease;
+}
+
+.draggable:hover {
+    cursor: url(/img/main/inpect.png), auto !important
 }
 
 .game-container {
@@ -21,11 +27,12 @@ body {
     overflow: hidden;
     background-color: var(--white);
     z-index: -10;
+    cursor: url(/img/main/neutral.png), auto !important
 }
 
 .table {
     position: absolute;
-    height: 793px;
+    height: 950px;
     width: inherit;
     background-image: url(/img/main/table.png);
     background-size: contain;
@@ -44,17 +51,32 @@ body {
     background-repeat: no-repeat;
     left: 3%;
     top: -35%;
+    transition: all 250ms ease 200ms;
+    z-index: 0;
 }
+
 .clock + .shadow {
-    height: 900px;
-    width: 900px;
+    height: 614px;
+    width: 614px;
     position: absolute;
     z-index: -1;
     background-image: url(/img/main/s-clock.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    left: 4%;
+    top: -33%;
+    transition: all 250ms ease 200ms;
 }
+
+.clock:hover {
+    left: 10%;
+    top: 0%;
+    z-index: 100;
+    filter: drop-shadow(0 0 500px #4b415767);
+    cursor: url(/img/main/inpect.png), auto !important
+}
+
 
 .calendar {
     position: absolute;
@@ -66,11 +88,13 @@ body {
     background-repeat: no-repeat;
     right: 11%;
     top: -50%;
+    transition: all 250ms ease 200ms;
+    z-index: 0;
 }
 
 .calendar + .shadow {
-    height: 900px;
-    width: 900px;
+    height: 750px;
+    width: 946px;
     position: relative;
     top: -100%;
     z-index: -1;    
@@ -78,11 +102,30 @@ body {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    top: -49%;
+    right: -42%;
+    transition: all 250ms ease 200ms;
 }
+
+.calendar:hover {
+    right: 15%;
+    top: -5%;
+    z-index: 100;
+    filter: drop-shadow(0 0 500px #4b415767);
+    cursor: url(/img/main/inpect.png), auto !important;
+}
+
+
+.clock:hover + .shadow,
+.calendar:hover + .shadow {
+    opacity: 0;
+ }
 
 .draggable.manilla {
     height: 707px;
     width: 1131px;
+    left: 9%;
+    top: 12%;
 }
 
 .draggable .manilla {
@@ -111,6 +154,8 @@ body {
 .draggable.archive {
     height: 633px;
     width: 487px;
+    left: 11%;
+    top: 13%;
 }
 
 .draggable .archive {
@@ -139,6 +184,8 @@ body {
 .draggable.sighting {
     height: 623px;
     width: 474px;
+    top: 17%;
+    right: 35%;
 }
 
 .draggable .sighting {
@@ -189,15 +236,15 @@ body {
     background-repeat: no-repeat;
 }
 
-/* .stamper.real {
+.stamper.real {
     right: 20%;
-    top: 17%;
+    top: 27%;
 }
 
 .stamper.fake {
-    right: 10%;
-    top: 17%;
-} */
+    right: 7%;
+    top: 19%;
+}
 
 .stamp {
     z-index: 3;
