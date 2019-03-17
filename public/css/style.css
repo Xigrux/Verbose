@@ -1,2 +1,379 @@
 @import "colours.css";
 @import "typography.css";
+
+body {
+    background-color: var(--black);
+}
+
+.hidden {
+    display:none;
+}
+
+.draggable {
+    position: absolute;
+    z-index: 0;
+    filter: drop-shadow( 0 0 20px #c7c7c732);
+    transition: filter 500ms ease;
+}
+
+.draggable:hover {
+    cursor: url(/img/main/inpect.png), auto !important
+}
+
+.game-container {
+    position: absolute;
+    height: 1080px;
+    width: 1920px;
+    overflow: hidden;
+    background-color: var(--white);
+    color: var(--black);
+    z-index: -10;
+    cursor: url(/img/main/neutral.png), auto !important;
+    font-family: monospace;
+}
+
+.table {
+    position: absolute;
+    height: 805px;
+    width: inherit;
+    background-image: url(/img/main/table.png);
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    bottom: 0;
+}
+
+.clock {
+    position: absolute;
+    height: 595px;
+    width: 595px;
+    background-image: url(/img/main/clock.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    left: 3%;
+    top: -35%;
+    transition: all 250ms ease 200ms;
+    z-index: 0;
+}
+
+.clock + .shadow {
+    height: 614px;
+    width: 614px;
+    position: absolute;
+    z-index: -1;
+    background-image: url(/img/main/s-clock.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    left: 4%;
+    top: -33%;
+    transition: all 250ms ease 200ms;
+}
+
+.clock:hover {
+    left: 10%;
+    top: 0%;
+    z-index: 100;
+    filter: drop-shadow(0 0 500px #4b415767);
+    cursor: url(/img/main/inpect.png), auto !important
+}
+
+.needle {
+    left: 48%;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 200px solid rgb(61, 16, 82);
+    position: absolute;
+    top: 17%;
+    transform-origin: bottom;
+    transform: rotate(0deg);
+    animation: clockwork 300000ms forwards;
+}
+
+.calendar {
+    position: absolute;
+    height: 730px;
+    width: 934px;
+    background-image: url(/img/main/calendar.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    right: 11%;
+    top: -50%;
+    transition: all 250ms ease 200ms;
+    z-index: 0;
+}
+
+.calendar + .shadow {
+    height: 750px;
+    width: 946px;
+    position: relative;
+    top: -100%;
+    z-index: -1;    
+    background-image: url(/img/main/s-calendar.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    top: -49%;
+    right: -42%;
+    transition: all 250ms ease 200ms;
+}
+
+.calendar:hover {
+    right: 15%;
+    top: -5%;
+    z-index: 100;
+    filter: drop-shadow(0 0 500px #4b415767);
+    cursor: url(/img/main/inpect.png), auto !important;
+}
+
+
+.clock:hover + .shadow,
+.calendar:hover + .shadow {
+    opacity: 0;
+ }
+
+.draggable.manilla {
+    height: 707px;
+    width: 1131px;
+    left: 9%;
+    top: 4%;
+}
+
+.draggable .manilla {
+    position: relative;
+    background-image: url(/img/main/manilla.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 0;
+    height: inherit;
+    width: inherit;
+}
+
+.manilla + .shadow {
+    height: 729px;
+    width: 1152px;
+    position: relative;
+    top: -100%;
+    z-index: -1;
+    background-image : url(/img/main/s-manilla.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.draggable.archive {
+    height: 633px;
+    width: 487px;
+    left: 11%;
+    top: 2%;
+}
+
+.draggable .archive {
+    position: relative;
+    background-image: url(/img/main/archive.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    left: 0;
+    height: inherit;
+    width: inherit;
+}
+
+.archive + .shadow {
+    height: 654px;
+    width: 508px;
+    position: relative;
+    top: -100%;
+    z-index: -1;
+    background-image : url(/img/main/s-archive.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.documentation,
+.report {
+    padding: 7% 10%;
+    text-align: justify;
+}
+
+.header-scp {    
+    width: 100%;
+    height: 100px;
+    background-image: url(http://scp-wiki.wdfiles.com/local--files/djkaktus-guide-to-article-formatting/warning.png);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.header-scp-report {
+    width: 100%;
+    height: 100px;
+    background-image: url(https://orig00.deviantart.net/ae08/f/2014/152/1/2/scp_foundation_personal_input_by_wolfsbane99-d7kky35.png);
+    background-size: contain;
+    background-position: left;
+    background-repeat: no-repeat;
+    margin-left: -68px;
+}
+
+.draggable.sighting {
+    height: 623px;
+    width: 474px;
+    top: 7%;
+    right: 35%;
+}
+
+.draggable .sighting {
+    position: relative;
+    background-image: url(/img/main/sighting.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    right: 0;
+    height: inherit;
+    width: inherit;
+}
+.sighting + .shadow {
+    height: 643px;
+    width: 495px;
+    position: relative;
+    top: -100%;
+    z-index: -1;
+    background-image : url(/img/main/s-sighting.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.draggable.stamper {
+    width: 86px;
+    height: 86px;
+}
+
+.draggable .stamper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 246px;
+    width: 144px;
+    left: -33%;
+    top: -206%;
+}
+.stamper + .shadow {
+    height: 267px;
+    width: 135px;
+    position: relative;
+    z-index: -1;
+    left: -24px;
+    top: -460%;
+    background: url(/img/main/s-stamp.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.stamper.real {
+    right: 20%;
+    top: 27%;
+}
+
+.stamper.fake {
+    right: 7%;
+    top: 19%;
+}
+
+.stamp {
+    z-index: 3;
+    height: 246px;
+    width: 144px;
+    background-image: url(/img/main/stamp.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.green, 
+.red {
+    position: relative;
+    display: inline-block;
+    height: 55px;
+    width: 137px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 89%;
+}
+
+.green {
+    background-image: url(/img/main/g-stamp.png);
+}
+
+.red {
+    background-image: url(/img/main/r-stamp.png);
+}
+
+.stamp-here {
+    height: 96px;
+    width: 119px;
+    right: 33px;
+    top: 26px;
+    position: absolute;
+    background-image: url(/img/main/stamparea.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.stamp-here.drop-target {
+    animation: oppulse 700ms infinite ease-in-out;
+}
+
+.stamp-here.stamped-real,
+.stamp-here.stamped-fake {
+    background-image: url(/img/main/stamparea-trans.png);
+}
+
+.stamped-real:before {
+    content: url(/img/main/real.png);
+    position: absolute;
+    right: -5%;
+    top: -6%;
+    transform: rotate(-14deg) scale(0.9);
+}
+
+.stamped-fake:before {
+    content: url(/img/main/fake.png);
+    position: absolute;
+    right: -5%;
+    top: -6%;
+    transform: rotate(-14deg) scale(0.9);
+}
+
+.files.retract {
+    animation: slide-left forwards ;
+    animation-duration: 2000ms;
+    animation-delay: 300ms;
+}
+
+@keyframes clockwork {
+    0% {transform: rotate(0deg)}
+    100% {transform: rotate(360deg)}
+}
+
+@keyframes oppulse {
+    0% {opacity: 1; transform: scale(1)}
+    50% {opacity: 0.3; transform: scale(1.05)}
+    100% {opacity: 1; transform: scale(1)}
+}
+
+@keyframes slide-left {
+    0% {left: initial;}
+    60% {left: 10%;}
+    100% {left: -60%;}
+}
