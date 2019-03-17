@@ -5,8 +5,13 @@ body {
     background-color: var(--black);
 }
 
+.hidden {
+    display:none;
+}
+
 .draggable {
     position: absolute;
+    z-index: 0;
 }
 
 .game-container {
