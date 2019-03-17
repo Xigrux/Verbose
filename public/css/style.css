@@ -5,99 +5,200 @@ body {
     background-color: var(--black);
 }
 
+.draggable {
+    position: absolute;
+}
+
 .game-container {
+    position: absolute;
     height: 1080px;
     width: 1920px;
     overflow: hidden;
+    background-color: var(--white);
+    z-index: -10;
 }
 
 .table {
     position: absolute;
-    height: 1080px;
-    width: 1920px;
-    background-color: white;
-    background-image: url(/Users/xigrux/Projects/mcgamejam2019/public/img/main/table.png);
+    height: 793px;
+    width: inherit;
+    background-image: url(/img/main/table.png);
     background-size: contain;
     background-position: bottom;
     background-repeat: no-repeat;
+    bottom: 0;
 }
 
 .clock {
     position: absolute;
     height: 595px;
     width: 595px;
-    background-image: url(/Users/xigrux/Projects/mcgamejam2019/public/img/main/clock.png);
+    background-image: url(/img/main/clock.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    left: 0;
+    left: 3%;
+    top: -35%;
+}
+.clock + .shadow {
+    height: 900px;
+    width: 900px;
+    position: absolute;
+    z-index: -1;
+    background-image: url(/img/main/s-clock.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .calendar {
     position: absolute;
     height: 730px;
     width: 934px;
-    background-image: url(/Users/xigrux/Projects/mcgamejam2019/public/img/main/calendar.png);
+    background-image: url(/img/main/calendar.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    right: 0;
+    right: 11%;
+    top: -50%;
 }
 
-.manilla {
-    position: absolute;
+.calendar + .shadow {
+    height: 900px;
+    width: 900px;
+    position: relative;
+    top: -100%;
+    z-index: -1;    
+    background-image: url(/img/main/s-calendar.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.draggable.manilla {
     height: 707px;
     width: 1131px;
-    background-image: url(/Users/xigrux/Projects/mcgamejam2019/public/img/main/manilla.png);
+}
+
+.draggable .manilla {
+    position: relative;
+    background-image: url(/img/main/manilla.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     bottom: 0;
+    height: inherit;
+    width: inherit;
 }
 
-.archive {
-    position: absolute;
-    height: 739px;
-    width: 507px;
-    background-image: url(/Users/xigrux/Projects/mcgamejam2019/public/img/main/archive.png);
+.manilla + .shadow {
+    height: 729px;
+    width: 1152px;
+    position: relative;
+    top: -100%;
+    z-index: -1;
+    background-image : url(/img/main/s-manilla.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.draggable.archive {
+    height: 633px;
+    width: 487px;
+}
+
+.draggable .archive {
+    position: relative;
+    background-image: url(/img/main/archive.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     left: 0;
+    height: inherit;
+    width: inherit;
 }
 
-.sighting {
-    position: absolute;
+.archive + .shadow {
+    height: 654px;
+    width: 508px;
+    position: relative;
+    top: -100%;
+    z-index: -1;
+    background-image : url(/img/main/s-archive.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.draggable.sighting {
     height: 623px;
     width: 474px;
-    background-image: url(/Users/xigrux/Projects/mcgamejam2019/public/img/main/sighting.png);
+}
+
+.draggable .sighting {
+    position: relative;
+    background-image: url(/img/main/sighting.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     right: 0;
+    height: inherit;
+    width: inherit;
+}
+.sighting + .shadow {
+    height: 643px;
+    width: 495px;
+    position: relative;
+    top: -100%;
+    z-index: -1;
+    background-image : url(/img/main/s-sighting.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.stamper {
-    position: absolute;
+.draggable.stamper {
+    width: 144px;
+    height: 246px;
+}
+
+.draggable .stamper {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 144px;
-    height: 246px;
+    height: inherit;
+    width: inherit;
+}
+.stamper + .shadow {
+    height: 267px;
+    width: 135px;
+    position: relative;
+    z-index: -1;
+    left: 7px;
+    top: -89%;
+    background: url(/img/main/s-stamp.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-.stamper.real {
-    left: 10px;
+/* .stamper.real {
+    right: 20%;
+    top: 17%;
 }
 
 .stamper.fake {
-    right: 10px;
-}
+    right: 10%;
+    top: 17%;
+} */
 
 .stamp {
+    z-index: 3;
     height: 246px;
     width: 144px;
-    background-image: url(/Users/xigrux/Projects/mcgamejam2019/public/img/main/stamp.png);
+    background-image: url(/img/main/stamp.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -116,10 +217,10 @@ body {
 }
 
 .green {
-    background-image: url(/Users/xigrux/Projects/mcgamejam2019/public/img/main/g-stamp.png);
+    background-image: url(/img/main/g-stamp.png);
 }
 
 .red {
-    background-image: url(/Users/xigrux/Projects/mcgamejam2019/public/img/main/r-stamp.png);
+    background-image: url(/img/main/r-stamp.png);
 }
 
