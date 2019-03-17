@@ -32,13 +32,15 @@ function makeid(length) {
 }
 
 function setupFolder(index) {
-  var doc = document.querySelector(".documentation");
-  doc.querySelector("h6").innerHTML = "SCP-" + db[index].id;
-  doc.querySelector("p").innerHTML = db[index].text;
+  setTimeout(() => {
+    var doc = document.querySelector(".documentation");
+    doc.querySelector("h6").innerHTML = "SCP-" + db[index].id;
+    doc.querySelector("p").innerHTML = db[index].text;
 
-  var report = document.querySelector(".report");
-  report.querySelector("h6").innerHTML = "Report #" + makeid(12);
-  report.querySelector("p").innerHTML = db[index].report;
+    var report = document.querySelector(".report");
+    report.querySelector("h6").innerHTML = "Report #" + makeid(12);
+    report.querySelector("p").innerHTML = db[index].report;
+  }, 1000);
 }
 
 function next(isReal) {
