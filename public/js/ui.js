@@ -30,6 +30,21 @@ interact(".draggable").draggable({
   onend: dragEndListener
 });
 
+interact(".throwable").draggable({
+  // enable inertial throwing
+  inertia: true,
+  // keep the element within the area of it's parent
+  modifiers: [
+    interact.modifiers.restrict({
+      endOnly: true,
+      elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+    })
+  ],
+  // enable autoScroll
+  autoScroll: true,
+  onmove: dragMoveListener
+});
+
 /* The dragging code for '.draggable' from the demo above
  * applies to this demo as well so it doesn't have to be repeated. */
 
@@ -62,6 +77,9 @@ interact(".dropzone").dropzone({
   ondrop: function(event) {
     var real = event.relatedTarget.classList.contains("real");
     var files = document.querySelectorAll(".files");
+
+    document.querySelector(".stamper").setAttribute("data-x", 0);
+    document.querySelector(".stamper").setAttribute("data-y", 0);
     if (real) {
       event.target.classList.add("stamped-real");
       event.relatedTarget.style.transform = "unset";
@@ -133,8 +151,6 @@ function dragStartListener(event) {
   fade(shadow);
   target.style.filter = "drop-shadow(0 0 500px #4b415767)";
   event.target.classList.remove("loop-around");
-  event.target.setAttribute("data-x", 0);
-  event.target.setAttribute("data-y", 0);
 }
 
 function dragMoveListener(event) {
