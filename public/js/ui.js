@@ -1,4 +1,4 @@
-import * as generator from './generator.js'
+import * as generator from "./generator.js";
 
 function init() {
   return new Promise((resolve, reject) => {
@@ -61,36 +61,49 @@ interact(".dropzone").dropzone({
   },
   ondrop: function(event) {
     var real = event.relatedTarget.classList.contains("real");
+    var files = document.querySelectorAll(".files");
     if (real) {
       event.target.classList.add("stamped-real");
+      event.relatedTarget.style.transform = "unset";
+      event.target.style.transform = "unset";
+      //   for (var i = 2; i >= 0; i--) {
+      //     files[i].setAttribute("data-x", 0);
+      //     files[i].setAttribute("data-y", 0);
+      //   }
     } else {
       event.target.classList.add("stamped-fake");
+      event.relatedTarget.style.transform = "unset";
+      event.target.style.transform = "unset";
     }
 
     if (generator.next(real)) {
-      var files = document.querySelectorAll(".files");
-
       setTimeout(() => {
         for (var i = 2; i >= 0; i--) {
+          files[i].classList.remove("loop-around");
           files[i].classList.add("retract");
         }
-      }, 100)
-      
+      }, 100);
+
       setTimeout(() => {
-        console.log('...')
+        console.log("...");
         // all good and we've got another folder
         for (var i = 2; i >= 0; i--) {
+          files[i].classList.add("loop-around");
           files[i].classList.remove("retract");
+          files[i].style.transform = "unset";
+          files[i].setAttribute("data-x", 0);
+          files[i].setAttribute("data-y", 0);
         }
         event.target.classList.remove("stamped-real");
         event.target.classList.remove("stamped-fake");
+
         // @lulu: change the 3000 to whatever you think the delay
         // for stuff coming back on to the screen should be
-      }, 3000)
+      }, 1000);
     } else {
       // that was the last folder; we need to show the total
       // @lulu: here's where we'd show a modal with the results
-      console.dir(generator.results)
+      console.dir(generator.results);
     }
   },
   ondropdeactivate: function(event) {
@@ -119,6 +132,9 @@ function dragStartListener(event) {
   var shadow = target.children[1];
   fade(shadow);
   target.style.filter = "drop-shadow(0 0 500px #4b415767)";
+  event.target.classList.remove("loop-around");
+  event.target.setAttribute("data-x", 0);
+  event.target.setAttribute("data-y", 0);
 }
 
 function dragMoveListener(event) {
