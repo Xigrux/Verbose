@@ -1,2 +1,125 @@
 @import "colours.css";
 @import "typography.css";
+
+body {
+    background-color: var(--black);
+}
+
+.game-container {
+    height: 1080px;
+    width: 1920px;
+    overflow: hidden;
+}
+
+.table {
+    position: absolute;
+    height: 1080px;
+    width: 1920px;
+    background-color: white;
+    background-image: url(/Users/xigrux/Projects/mcgamejam2019/public/img/main/table.png);
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.clock {
+    position: absolute;
+    height: 595px;
+    width: 595px;
+    background-image: url(/Users/xigrux/Projects/mcgamejam2019/public/img/main/clock.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    left: 0;
+}
+
+.calendar {
+    position: absolute;
+    height: 730px;
+    width: 934px;
+    background-image: url(/Users/xigrux/Projects/mcgamejam2019/public/img/main/calendar.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    right: 0;
+}
+
+.manilla {
+    position: absolute;
+    height: 707px;
+    width: 1131px;
+    background-image: url(/Users/xigrux/Projects/mcgamejam2019/public/img/main/manilla.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    bottom: 0;
+}
+
+.archive {
+    position: absolute;
+    height: 739px;
+    width: 507px;
+    background-image: url(/Users/xigrux/Projects/mcgamejam2019/public/img/main/archive.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    left: 0;
+}
+
+.sighting {
+    position: absolute;
+    height: 623px;
+    width: 474px;
+    background-image: url(/Users/xigrux/Projects/mcgamejam2019/public/img/main/sighting.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    right: 0;
+}
+
+.stamper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 144px;
+    height: 246px;
+}
+
+.stamper.real {
+    left: 10px;
+}
+
+.stamper.fake {
+    right: 10px;
+}
+
+.stamp {
+    height: 246px;
+    width: 144px;
+    background-image: url(/Users/xigrux/Projects/mcgamejam2019/public/img/main/stamp.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.green, 
+.red {
+    position: relative;
+    display: inline-block;
+    height: 55px;
+    width: 137px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 89%;
+}
+
+.green {
+    background-image: url(/Users/xigrux/Projects/mcgamejam2019/public/img/main/g-stamp.png);
+}
+
+.red {
+    background-image: url(/Users/xigrux/Projects/mcgamejam2019/public/img/main/r-stamp.png);
+}
+
